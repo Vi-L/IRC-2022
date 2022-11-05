@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.commands.Drive;
+
 /**
  * This is a demo program showing the use of the DifferentialDrive class, specifically it contains
  * the code necessary to operate a robot with tank drive.
@@ -19,8 +22,11 @@ public class Robot extends TimedRobot {
   private Joystick m_leftStick;
   private Joystick m_rightStick;
 
-  private final MotorController m_leftMotor = new PWMSparkMax(0);
-  private final MotorController m_rightMotor = new PWMSparkMax(1);
+  // private final MotorController m_leftMotor = new PWMSparkMax(0);
+  // private final MotorController m_rightMotor = new PWMSparkMax(1);
+
+  Drivetrain drivetrain = new Drivetrain();
+  Drive drive = new Drive(drivetrain, m_leftStick, m_rightStick);
 
   @Override
   public void robotInit() {
@@ -37,5 +43,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     m_myRobot.tankDrive(m_leftStick.getY(), m_rightStick.getY());
+    drive.execute();
   }
 }
