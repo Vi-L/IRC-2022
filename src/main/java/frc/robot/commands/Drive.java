@@ -3,14 +3,14 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase; 
 
-public class Drive extends SubsystemBase {
+public class Drive extends CommandBase {
     Drivetrain drivetrain;
-    Joystick leftJoyStick;
+    Joystick leftJoystick;
     Joystick rightJoystick;
 
     public Drive(Drivetrain dt, Joystick leftJ, Joystick rightJ) {
         drivetrain = dt;
-        leftJoyStick = leftJ;
+        leftJoystick = leftJ;
         rightJoystick = rightJ;
 
         super.addRequirements(drivetrain);
@@ -24,10 +24,10 @@ public class Drive extends SubsystemBase {
         drivetrain.stop();
     }
 
-    boolean isFinished() {
+    public boolean isFinished() {
         return false;
     }
-    void end(boolean stop) {
+    public void end(boolean stop) {
         drivetrain.stop();
     }
 }
