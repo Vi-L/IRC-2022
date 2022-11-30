@@ -16,6 +16,7 @@ public class Drive extends CommandBase {
         rightJoystick = rightJ;
 
         super.addRequirements(drivetrain);
+        drivetrain.setDefaultCommand(this);
     }
 
     public void execute() {

@@ -6,16 +6,21 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Arm;
 import frc.robot.commands.Drive;
 import frc.robot.commands.BasicAuto;
+import frc.robot.commands.RotateArm;
 
 public class Robot extends TimedRobot {
   private Joystick m_leftStick;
   private Joystick m_rightStick;
+  JoystickButton upButton;
+  JoystickButton downButton;
 
   Drivetrain drivetrain = new Drivetrain();
+  Arm arm = new Arm();
   Drive drive = new Drive(drivetrain, m_leftStick, m_rightStick);
   BasicAuto basicauto = new BasicAuto(drivetrain);
 
@@ -28,6 +33,12 @@ public class Robot extends TimedRobot {
 
     m_leftStick = new Joystick(0); //USB PORTS
     m_rightStick = new Joystick(1);
+
+    upButton = new JoystickButton(m_leftStick, 1);
+    upButton = new JoystickButton(m_leftStick, 2);
+
+    upButton.whileActiveOnce(new RotateArm(arm, 1));
+    downButton.whileActiveOnce(new RotateArm(arm, -1));
   }
 
   @Override
