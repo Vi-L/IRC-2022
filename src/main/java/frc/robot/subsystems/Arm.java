@@ -7,7 +7,7 @@ public class Arm extends SubsystemBase {
     private VictorSP motorController;
 
     public Arm() {
-        motorController = new VictorSP(2); // TODO: fix port number
+        motorController = new VictorSP(9); // port 9 is motor controller for arm
     }
 
     public void rotate(double speed) {

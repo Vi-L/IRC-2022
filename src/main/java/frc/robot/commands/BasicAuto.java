@@ -10,7 +10,7 @@ public class BasicAuto extends SequentialCommandGroup {
     public BasicAuto(Drivetrain dt) {
         drivetrain = dt;
 
-        addCommands( //TODO: test auto! these values right now are kinda just random guesses
+        addCommands(
             new AutoDrive(drivetrain, 1, 1).withTimeout(2), // drive forwards for 2 seconds
             new AutoDrive(drivetrain, 0, 0) // stop
         );
