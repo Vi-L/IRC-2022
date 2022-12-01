@@ -35,10 +35,10 @@ public class Robot extends TimedRobot {
     m_rightStick = new Joystick(1);
 
     upButton = new JoystickButton(m_leftStick, 1);
-    upButton = new JoystickButton(m_leftStick, 2);
+    downButton = new JoystickButton(m_rightStick, 1);
 
     upButton.whileActiveOnce(new RotateArm(arm, 1));
-    downButton.whileActiveOnce(new RotateArm(arm, -1));
+    downButton.whileActiveOnce(new RotateArm(arm, -0.75));
   }
 
   @Override
