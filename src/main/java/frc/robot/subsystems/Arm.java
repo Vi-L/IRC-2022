@@ -13,4 +13,8 @@ public class Arm extends SubsystemBase {
     public void rotate(double speed) {
         motorController.set(speed); // can be between -1 and 1
     }
+
+    public void stop() {
+        motorController.set(0);
+    }
 }

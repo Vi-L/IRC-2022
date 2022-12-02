@@ -17,4 +17,12 @@ public class RotateArm extends CommandBase{
     public void execute() {
         arm.rotate(speed);
     }
+
+    
+    public boolean isFinished() {
+        return false;
+    }
+    public void end(boolean stop) {
+        arm.stop();
+    }
 }

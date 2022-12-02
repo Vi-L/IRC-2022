@@ -11,7 +11,7 @@ public class BasicAuto extends SequentialCommandGroup {
         drivetrain = dt;
 
         addCommands(
-            new AutoDrive(drivetrain, 1, 1).withTimeout(2), // drive forwards for 2 seconds
+            new AutoDrive(drivetrain, -0.4, -0.4).withTimeout(2), // drive forwards for 2 seconds
             new AutoDrive(drivetrain, 0, 0) // stop
         );
     }
