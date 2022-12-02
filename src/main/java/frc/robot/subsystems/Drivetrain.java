@@ -6,9 +6,9 @@ public class Drivetrain extends SubsystemBase {
     private VictorSP leftVictor, rightVictor;
 
     public Drivetrain() {
-        leftVictor = new VictorSP(8); // port 8 is motor controller for left motor
-        rightVictor = new VictorSP(7); // port 7 is motor controller for right motor
-        rightVictor.setInverted(true);
+        leftVictor = new VictorSP(7); // port 7 is motor controller for left motor
+        rightVictor = new VictorSP(8); // port 8 is motor controller for right motor
+        leftVictor.setInverted(true);
     }
 
     public void drive(double leftSpeed, double rightSpeed) {

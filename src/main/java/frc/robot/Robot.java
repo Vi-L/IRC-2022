@@ -14,8 +14,8 @@ import frc.robot.commands.BasicAuto;
 import frc.robot.commands.RotateArm;
 
 public class Robot extends TimedRobot {
-  private Joystick m_leftStick;
-  private Joystick m_rightStick;
+  private Joystick m_leftStick = new Joystick(0);
+  private Joystick m_rightStick = new Joystick(1);
   JoystickButton upButton;
   JoystickButton downButton;
 
@@ -31,14 +31,12 @@ public class Robot extends TimedRobot {
     gearbox is constructed, you might have to invert the left side instead."
     m_rightMotor.setInverted(true); */
 
-    m_leftStick = new Joystick(0); //USB PORTS
-    m_rightStick = new Joystick(1);
 
     upButton = new JoystickButton(m_leftStick, 1);
     downButton = new JoystickButton(m_rightStick, 1);
 
-    upButton.whileActiveOnce(new RotateArm(arm, 1));
-    downButton.whileActiveOnce(new RotateArm(arm, -0.75));
+    upButton.whenHeld(new RotateArm(arm, 1));
+    downButton.whenHeld(new RotateArm(arm, -0.75));
   }
 
   @Override
