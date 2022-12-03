@@ -28,8 +28,8 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    upButton.whenHeld(new RotateArm(arm, 1));
-    downButton.whenHeld(new RotateArm(arm, -0.75));
+    upButton.whenHeld(new RotateArm(arm, 0.8));
+    downButton.whenHeld(new RotateArm(arm, -0.65));
   }
 
   public Command getAutonomousCommand() {
